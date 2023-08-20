@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://api.fadinproject.nomoreparties.co";
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.fadinproject.nomoreparties.co';
+// export const BASE_URL = 'http://localhost:3000';
 
 function request(url, options) {
   return fetch(url, options).then(checkResult);
@@ -12,7 +12,6 @@ function checkResult(res) {
   return Promise.reject(`Ошибка ${res.status}`);
 }
 
-
 export const register = (email, password) => {
   return request(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -22,7 +21,7 @@ export const register = (email, password) => {
     },
     credentials: 'include',
     body: JSON.stringify({ email, password }),
-  })
+  });
 };
 
 export const authorization = (email, password) => {
@@ -34,7 +33,7 @@ export const authorization = (email, password) => {
     },
     credentials: 'include',
     body: JSON.stringify({ email, password }),
-  })
+  });
 };
 
 export const getContent = () => {
@@ -43,8 +42,7 @@ export const getContent = () => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
- 
     },
     credentials: 'include',
-  })
+  });
 };

@@ -26,6 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookies());
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use('/cards', auth, cardsRouter);
 app.use('/users', auth, usersRouter);
 app.use('/', authRouter);
