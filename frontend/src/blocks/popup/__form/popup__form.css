@@ -1,0 +1,17 @@
+.popup__form {
+    height: 24px;
+    width: 100%;
+    padding-bottom: 13px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, .2);
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    box-sizing: border-box;
+}
+
+.popup__form:focus {
+    outline-color: transparent;
+}

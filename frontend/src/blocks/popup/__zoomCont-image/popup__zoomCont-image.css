@@ -1,0 +1,7 @@
+.popup__zoomCont-image {
+    max-width: 75vw;
+    width: 100%;
+    max-height: 75vh;
+    height: 100%;
+    z-index: 2;
+}

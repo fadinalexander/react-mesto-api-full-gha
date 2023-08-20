@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb-base", "plugin: destructuring/recommended"],
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "destructuring/object-property-newline": "error"
+  }
+}

@@ -1,0 +1,50 @@
+.header__navigation {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  list-style: none;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}
+
+.header__user-id {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  display: flex;
+  padding-right: 24px;
+  margin: 0;
+}
+
+.header__btn-exit {
+  background-color: inherit;
+  color: #a9a9a9;
+  font-family: "Inter", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: inherit;
+  border-image: none;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.header__btn-exit:hover {
+  opacity: 0.6;
+}

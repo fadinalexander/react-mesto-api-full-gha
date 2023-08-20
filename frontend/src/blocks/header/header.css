@@ -1,0 +1,21 @@
+.header {
+    position: relative;
+    margin: 0 auto 40px;
+    max-width: 880px;
+    min-height: 74px;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+@media screen and (max-width: 940px) {
+    .header {
+        margin: 0 30px 40px;
+    }
+}
+
+@media screen and (max-width: 634px) {
+    .header {
+        padding: 0 27px;
+        min-height: 56px;
+        margin: 0 auto 42px;
+    }
+}
