@@ -15,7 +15,7 @@ const cardsRouter = require('./routes/cards');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 
-const { PORT, DB_URL } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mesto_fadinproject' } = process.env;
 const app = express();
 
 app.use(helmet());
