@@ -8,6 +8,7 @@ const { errors } = require('celebrate');
 
 const NotFoundError = require('./errors/NotFoundError');
 
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
 
 const cardsRouter = require('./routes/cards');
@@ -21,6 +22,7 @@ app.use(helmet());
 
 app.use(cors({ origin: ['http://localhost:3001', 'https://fadinproject.nomoreparties.co'], credentials: true }));
 
+app.use(requestLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -32,13 +34,14 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use('/', authRouter);
 app.use('/cards', auth, cardsRouter);
 app.use('/users', auth, usersRouter);
-app.use('/', authRouter);
 
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Not Found - Страница не найдена'));
 });
+app.use(errorLogger);
 app.use(errors());
 
 app.use((err, req, res, next) => {
@@ -51,7 +54,9 @@ app.use((err, req, res, next) => {
   }
 });
 
-mongoose.connect(DB_URL);
+mongoose.connect(DB_URL, {
+  useNewUrlParser: true,
+});
 
 app.listen(PORT, () => {
   console.log(`Application is running on port ${PORT}`);
