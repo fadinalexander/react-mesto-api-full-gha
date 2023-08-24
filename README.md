@@ -10,7 +10,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.20.158
+IP-адрес 158.160.119.153
 
 Frontend https://fadinproject.nomoreparties.co
 

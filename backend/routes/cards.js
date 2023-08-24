@@ -2,7 +2,9 @@ const router = require('express').Router();
 
 const { celebrate, Joi } = require('celebrate');
 
-const { getCards, createCard, likeCard, dislikeCard, deleteCard } = require('../controllers/cards');
+const {
+  getCards, createCard, likeCard, dislikeCard, deleteCard,
+} = require('../controllers/cards');
 
 const URLreg = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)[a-zA-Z0-9-]+\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/;
 

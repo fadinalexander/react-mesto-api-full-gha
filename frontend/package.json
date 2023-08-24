@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* fadinalexander@158.160.20.158:/home/fadinalexander/frontend"
+    "deploy": "npm run build && scp -r ./build/* alexfadin@158.160.119.153:/home/fadinalexander/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +41,6 @@
   "devDependencies": {
     "eslint": "^8.47.0",
     "eslint-plugin-react": "^7.33.2",
-    "gh-pages": "^6.0.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "gh-pages": "^6.0.0"
   }
 }

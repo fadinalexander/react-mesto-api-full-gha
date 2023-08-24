@@ -38,9 +38,9 @@ app.use('/', authRouter);
 app.use('/cards', auth, cardsRouter);
 app.use('/users', auth, usersRouter);
 
-// app.use('*', (req, res, next) => {
-//   next(new NotFoundError('Not Found - Страница не найдена'));
-// });
+app.use('*', (req, res, next) => {
+  next(new NotFoundError('Not Found - Страница не найдена'));
+});
 app.use(errorLogger);
 app.use(errors());
 

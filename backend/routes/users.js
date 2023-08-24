@@ -2,9 +2,10 @@ const router = require('express').Router();
 
 const { celebrate, Joi } = require('celebrate');
 
-const URLreg = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)[a-zA-Z0-9-]+\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/;
-
-const { getUsers, getUser, getMyUser, updateProfile, updateAvatar } = require('../controllers/users');
+const URLreg = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-z]{2,}\/?([^\s]*)$/;
+const {
+  getUsers, getUser, getMyUser, updateProfile, updateAvatar,
+} = require('../controllers/users');
 
 router.get('/', getUsers);
 router.get('/me', getMyUser);

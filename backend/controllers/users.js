@@ -12,15 +12,13 @@ const InternalServerError = require('../errors/InternalServerError');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
-const getUsers = (req, res, next) => {
-  return User.find({})
-    .then((users) => {
-      res.status(200).send(users);
-    })
-    .catch((error) => {
-      next(error);
-    });
-};
+const getUsers = (req, res, next) => User.find({})
+  .then((users) => {
+    res.status(200).send(users);
+  })
+  .catch((error) => {
+    next(error);
+  });
 
 const getUser = (req, res, next) => {
   const { userId } = req.params;
@@ -38,31 +36,29 @@ const getUser = (req, res, next) => {
     });
 };
 
-const getMyUser = (req, res, next) => {
-  return User.findById(req.user._id)
-    .orFail(new NotFoundError('Пользователь не найден'))
-    .then((user) => {
-      res.status(200).send(user);
-    })
-    .catch((error) => {
-      next(error);
-    });
-};
+const getMyUser = (req, res, next) => User.findById(req.user._id)
+  .orFail(new NotFoundError('Пользователь не найден'))
+  .then((user) => {
+    res.status(200).send(user);
+  })
+  .catch((error) => {
+    next(error);
+  });
 
 const createUser = (req, res, next) => {
-  const { name, about, avatar, email, password } = req.body;
+  const {
+    name, about, avatar, email, password,
+  } = req.body;
 
   bcrypt
     .hash(password, 10)
-    .then((hash) => {
-      return User.create({
-        name,
-        about,
-        avatar,
-        email,
-        password: hash,
-      });
-    })
+    .then((hash) => User.create({
+      name,
+      about,
+      avatar,
+      email,
+      password: hash,
+    }))
     .then((user) => {
       res.status(201).send({
         name: user.name,
